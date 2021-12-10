@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import Day from './components/day.js';
+import Day from '../components/day.js';
+
+import './styles.css';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <hi>Hello World!</hi>
+        <h1>One Poem A Day</h1>
+        <Day />
       </div>
     );
   }
