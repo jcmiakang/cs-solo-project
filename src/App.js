@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Day from './components/day.js';
 
 class App extends Component {
   render() {
