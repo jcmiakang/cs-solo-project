@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Entry from './entry.js';
 
-class Day extends Component {
+class Days extends Component {
   constructor(props) {
     super(props);
   }
@@ -15,4 +15,4 @@ class Day extends Component {
   }
 }
 
-export default Day;
+export default Days;
