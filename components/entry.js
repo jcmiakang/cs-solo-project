@@ -9,11 +9,13 @@ class Entry extends Component {
   }
 
   // printPoem() {
-  //   fetch('/')
+  //   console.log('reached printPoem');
+  //   fetch('/api')
   //     .then((res) => res.json())
   //     .then((poem) => {
+  //       console.log(poem);
   //       return this.setState({
-  //         poem: poem,
+  //         poem: poem.poem_body,
   //       });
   //     })
   //     .catch((err) => console.log('Entry.printPoem - ERROR: ', err));
@@ -21,8 +23,12 @@ class Entry extends Component {
 
   render() {
     return (
-      <button className='entry' onClick={this.printPoem}>
-        Entry
+      <button
+        className='entry'
+        getpoem={this.props.getpoem}
+        onClick={(e) => this.props.getpoem(e)}
+      >
+        Entry {this.props.aprilDate}
       </button>
     );
   }

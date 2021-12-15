@@ -8,8 +8,8 @@ class Days extends Component {
 
   render() {
     const days = [];
-    for (let i = 1; i < 30; i++) {
-      days.push(<Entry key={i} />);
+    for (let i = 1; i < 31; i++) {
+      days.push(<Entry key={i} aprilDate={i} getpoem={this.props.getpoem} />);
     }
     return <div>{days}</div>;
   }
