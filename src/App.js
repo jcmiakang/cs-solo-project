@@ -8,12 +8,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      date: '',
       title: '',
       poem: '',
     };
     this.getpoem = this.getpoem.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
     this.updateBody = this.updateBody.bind(this);
+    this.updateAll = this.updateAll.bind(this);
   }
 
   getpoem(e, date) {
@@ -22,7 +24,9 @@ class App extends Component {
       .then((res) => res.json())
       .then((poem) => {
         console.log('LEAVING FETCH REQUEST');
+        // if poem.title or poem.poem_body === undefined, set to ''
         return this.setState({
+          date: date,
           title: poem.title,
           poem: poem.poem_body,
         });
@@ -48,6 +52,24 @@ class App extends Component {
     console.log(e);
   }
 
+  updateAll() {
+    console.log(this.state.title);
+    console.log(this.state.poem);
+
+    let date = this.state.date;
+    const paramFetch = `/api/${date}`;
+    fetch(paramFetch, {
+      method: 'PUT',
+      body: JSON.stringify({ title: this.state.title, poem: this.state.poem }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log('RESPONSE: ', res);
+      })
+      .catch((err) => console.log('Entry.updateAll - ERROR: ', err));
+  }
+
   render() {
     return (
       <div>
@@ -66,20 +88,11 @@ class App extends Component {
           onChange={this.updateBody}
           value={this.state.poem}
         ></textarea>
+        <button onClick={this.updateAll}>Update</button>
+        <button onClick={(e) => console.log('clicked DELETE')}>Delete</button>
       </div>
     );
   }
-
-  // render() {
-  //   return (
-  //     <div>
-  //       <h1>National Poetry Month</h1>
-  //       <Days getpoem={this.getpoem} />
-  //       <h1>Title: {this.state.title}</h1>
-  //       <h1>Poem: {this.state.poem}</h1>
-  //     </div>
-  //   );
-  // }
 }
 
 export default App;
