@@ -19,7 +19,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // use all defined routes to middleware functions
-app.use('/api', apiRouter);
+app.use(
+  '/api',
+  // (req, res, next) => {
+  //   console.log('SAM IN SERVER', req.params);
+  //   return next();
+  // },
+  apiRouter
+);
 
 // catch-all for route handler for any requests to unknown routes
 app.use((req, res) =>
