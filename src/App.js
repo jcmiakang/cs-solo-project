@@ -16,6 +16,7 @@ class App extends Component {
     this.updateTitle = this.updateTitle.bind(this);
     this.updateBody = this.updateBody.bind(this);
     this.updateAll = this.updateAll.bind(this);
+    this.deleteContents = this.deleteContents.bind(this);
   }
 
   getpoem(e, date) {
@@ -53,11 +54,10 @@ class App extends Component {
   }
 
   updateAll() {
-    console.log(this.state.title);
-    console.log(this.state.poem);
-
     let date = this.state.date;
-    const paramFetch = `/api/${date}`;
+    let title = this.state.title;
+    let poem = this.state.poem;
+    const paramFetch = `/api/${date}/${title}/${poem}`;
     fetch(paramFetch, {
       method: 'PUT',
       body: JSON.stringify({ title: this.state.title, poem: this.state.poem }),
@@ -68,6 +68,25 @@ class App extends Component {
         console.log('RESPONSE: ', res);
       })
       .catch((err) => console.log('Entry.updateAll - ERROR: ', err));
+  }
+
+  deleteContents() {
+    let date = this.state.date;
+    const paramFetch = `/api/${date}`;
+    fetch(paramFetch, {
+      method: 'PUT',
+      body: JSON.stringify({ date: this.state.date }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((res) => res.json())
+      .then((poem) => {
+        return this.setState({
+          date: date,
+          title: poem.title,
+          poem: poem.poem_body,
+        });
+      })
+      .catch((err) => console.log('Entry.deleteContents - ERROR: ', err));
   }
 
   render() {
@@ -89,7 +108,7 @@ class App extends Component {
           value={this.state.poem}
         ></textarea>
         <button onClick={this.updateAll}>Update</button>
-        <button onClick={(e) => console.log('clicked DELETE')}>Delete</button>
+        <button onClick={this.deleteContents}>Delete</button>
       </div>
     );
   }

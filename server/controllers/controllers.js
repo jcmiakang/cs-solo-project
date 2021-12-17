@@ -25,23 +25,39 @@ controllers.getpoem = (req, res, next) => {
     });
 };
 
-// controllers.getTile = (req, res, next) => {
-//   console.log('REACHED GET TITLE');
+controllers.deletePoem = (req, res, next) => {
+  console.log('REACHED DELETE POEM');
+  // //const poem =
+  //   'UPDATE entries SET date=$1, title=$2, poem_body=$3 WHERE entries.id=$1';
 
-//   const poem = 'SELECT title FROM entries WHERE entries.id=$1';
+  const poem = `UPDATE entries SET title='', poem_body='' WHERE entries.id=$1`;
 
-//   db.query(poem, [req.params.date])
-//     .then((data) => {
-//       //res.locals.poem = req.body.poem;
-//       res.locals.title = data.rows[0];
-//       console.log(data.rows[0]);
-//       console.log('EXITING GET TITLE');
-//       next();
-//     })
-//     .catch((err) => {
-//       console.log(`Error: ${err}`);
-//       next({ log: `ERROR ${err}` });
-//     });
-// };
+  db.query(poem, [req.params.date])
+    .then((data) => {
+      console.log('EXITING DELETE POEM');
+      next();
+    })
+    .catch((err) => {
+      console.log(`Error: ${err}`);
+      next({ log: `ERROR ${err}` });
+    });
+};
+
+controllers.updatePoem = (req, res, next) => {
+  console.log('REACHED UPDATE POEM');
+  console.log(req.params);
+
+  const poem = 'UPDATE entries SET title=$2, poem_body=$3 WHERE entries.id=$1';
+
+  db.query(poem, [req.params.date, req.params.title, req.params.poem])
+    .then((data) => {
+      console.log('EXITING UPDATE POEM');
+      next();
+    })
+    .catch((err) => {
+      console.log(`Error: ${err}`);
+      next({ log: `ERROR ${err}` });
+    });
+};
 
 module.exports = controllers;
