@@ -11,7 +11,7 @@ class Days extends Component {
     for (let i = 1; i < 31; i++) {
       days.push(<Entry key={i} aprilDate={i} getpoem={this.props.getpoem} />);
     }
-    return <div>{days}</div>;
+    return <div className='entry'>{days}</div>;
   }
 }
 

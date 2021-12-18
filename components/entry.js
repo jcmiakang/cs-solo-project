@@ -11,10 +11,10 @@ class Entry extends Component {
   render() {
     return (
       <button
-        className='entry'
+        className='button'
         onClick={(e) => this.props.getpoem(e, this.props.aprilDate)}
       >
-        Entry {this.props.aprilDate}
+        April {this.props.aprilDate}
       </button>
     );
   }
