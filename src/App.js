@@ -9,6 +9,7 @@ class App extends Component {
     super(props);
     this.state = {
       date: '',
+      poem_number: '...',
       title: '',
       poem: '',
     };
@@ -28,6 +29,7 @@ class App extends Component {
         // if poem.title or poem.poem_body === undefined, set to ''
         return this.setState({
           date: date,
+          poem_number: date,
           title: poem.title,
           poem: poem.poem_body,
         });
@@ -93,22 +95,35 @@ class App extends Component {
     return (
       <div>
         <h1 id='header'>National Poetry Month</h1>
-        <Days getpoem={this.getpoem} />
-
-        <input
-          id='poem_title'
-          placeholder='Poem title...'
-          onChange={this.updateTitle}
-          value={this.state.title}
-        ></input>
-        <textarea
-          id='poem_body'
-          placeholder='Write your poem here...'
-          onChange={this.updateBody}
-          value={this.state.poem}
-        ></textarea>
-        <button onClick={this.updateAll}>Update</button>
-        <button onClick={this.deleteContents}>Delete</button>
+        <h2 id='rich_quote'>
+          The moment of change is the only poem ~ Adrienne Rich
+        </h2>
+        <Days aprildate={this.props.aprildate} getpoem={this.getpoem} />
+        <div className='text_inputs'>
+          <h3 id='poem_for_april' onChange={this.getpoem}>
+            Poem for April {this.state.poem_number}
+          </h3>
+          <textarea
+            id='poem_title'
+            placeholder='Poem title...'
+            onChange={this.updateTitle}
+            value={this.state.title}
+          ></textarea>
+          <textarea
+            id='poem_body'
+            placeholder='Write your poem here...'
+            onChange={this.updateBody}
+            value={this.state.poem}
+          ></textarea>
+        </div>
+        <div className='edit_buttons'>
+          <button id='save_button' onClick={this.updateAll}>
+            Save
+          </button>
+          <button id='delete_button' onClick={this.deleteContents}>
+            Delete
+          </button>
+        </div>
       </div>
     );
   }

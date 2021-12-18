@@ -1,20 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Oooh+Baby&family=Special+Elite&display=swap');
+
 body {
-  background-color: cornsilk;
+  background-color: #f2f3f2;
 }
+
 #header {
-  font-size: 45px;
-  color: black;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 8px;
+
+  font-size: 55px;
+  font-family: 'Special Elite', cursive;
+  color: black;
+  font-weight: bold;
+}
+
+h1 {
+  display: flex;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+#rich_quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 15px;
+
+  font-size: 34px;
+  font-family: 'Oooh Baby', cursive;
+  color: black;
+}
+
+h2 {
+  display: flex;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+#poem_for_april {
+  font-size: 38px;
+  font-family: 'Oooh Baby', cursive;
+
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+h3 {
+  display: flex;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 .entry {
   padding-top: 20px;
   padding-bottom: 20px;
   font-size: 18px;
-  border-top: 5px solid rgb(121, 98, 71);
-  border-bottom: 5px solid rgb(121, 98, 71);
+  border-top: 5px solid #4f4048;
+  border-bottom: 5px solid #4f4048;
 
   color: blanchedalmond;
 
@@ -33,20 +90,80 @@ body {
   margin: 5px;
   border-radius: 12px;
 
-  font-size: 18px;
+  width: 5.8%;
+
+  font-size: 2.5vh;
   border-top: 2px solid black;
-  background-color: burlywood;
-  color: blanchedalmond;
+  background-color: #a47a7d;
+  color: #f2f3f2;
 }
 button:focus {
-  background-color: goldenrod;
+  background-color: #778285;
 }
+
+.text_inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.edit_buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#save_button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  padding-inline: 10;
+  margin: 10px;
+  border-radius: 12px;
+
+  width: 5.8%;
+
+  font-size: 2.5vh;
+  border-top: 2px solid black;
+  background-color: #a47a7d;
+  color: #f2f3f2;
+}
+
+#delete_button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  padding-inline: 10;
+  margin: 10px;
+  border-radius: 12px;
+
+  width: 5.8%;
+
+  font-size: 2.5vh;
+  border-top: 2px solid black;
+  background-color: #a47a7d;
+  color: #f2f3f2;
+}
+
+/* .edit_buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+} */
 
 #poem_title {
   display: flex;
   overflow: auto;
-  align-items: center;
-  justify-content: center;
+
+  width: 75%;
 
   padding-top: 10px;
   padding-bottom: 10px;
@@ -55,13 +172,12 @@ button:focus {
 #poem_body {
   display: flex;
   overflow: auto;
-  align-items: center;
-  justify-content: center;
+
+  white-space: pre-wrap;
+
+  width: 75%;
+  height: 275px;
 
   padding-top: 10px;
   padding-bottom: 10px;
 }
-
-/* button:active {
-  background-color: green;
-} */

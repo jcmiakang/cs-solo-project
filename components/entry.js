@@ -3,9 +3,6 @@ import React, { Component, useState } from 'react';
 class Entry extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   poem: '',
-    // };
   }
 
   render() {
