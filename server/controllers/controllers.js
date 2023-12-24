@@ -2,12 +2,10 @@
 
 const db = require('../models/models');
 const { render } = require('../server');
-// const { param } = require('../');
 
 const controllers = {};
 
 controllers.getpoem = (req, res, next) => {
-  //const customInput = req.params.date;
   const poem = 'SELECT title, poem_body FROM entries WHERE entries.id=$1';
 
   console.log('ENTERED GET POEM MIDDLEWARE');
