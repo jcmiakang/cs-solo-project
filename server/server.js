@@ -4,6 +4,8 @@ const path = require('path');
 const apiRouter = require('./routes/api');
 const controllers = require('./controllers/controllers');
 
+const PORT = 3000;
+
 // handle parsing req.body from json
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -33,6 +35,6 @@ app.use((req, res) =>
   res.status(404).send("This is not the page you're looking for...")
 );
 
-app.listen(3000); //listens on port 3000 -> http://localhost:3000/
+app.listen(PORT, () => console.log(`server running on ${PORT}`)); //listens on port 3000 -> http://localhost:3000/
 
 module.exports = app;
